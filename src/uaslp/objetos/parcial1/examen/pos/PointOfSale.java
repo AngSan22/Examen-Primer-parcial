@@ -3,11 +3,11 @@ package uaslp.objetos.parcial1.examen.pos;
 import java.util.ArrayList;
 
 public class PointOfSale {
-    private ArrayList<CartItem> items = new ArrayList<CartItem>();
+    private ArrayList<CartItem> items = new ArrayList<>();
 
     public void addToCart(int quantity, Product product){
         for(CartItem cartItem : items){
-            if(cartItem.getProductName() == product.getName()){
+            if(cartItem.getProductName().equals(product.getName())){
                 cartItem.setQuantity(cartItem.getQuantity() + quantity);
                 quantity = 0;
             }
@@ -31,14 +31,14 @@ public class PointOfSale {
     }
 
     public ArrayList<CartItem> getProducts(){
-        return new ArrayList<CartItem>(items);
+        return new ArrayList<>(items);
     }
 
     public int getCountByName(String name){
         int count = 0;
 
         for(CartItem cartitem: items){
-            if(cartitem.getProductName() == name){
+            if(cartitem.getProductName().equals(name)){
                 count = cartitem.getQuantity();
             }
         }
